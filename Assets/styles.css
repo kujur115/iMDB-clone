@@ -1,113 +1,122 @@
-*{
-    /* background-color: darkslategray; */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+* {
+  /* background-color: darkslategray; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
-:root{
-    --background:darkslategray;
-    --text-color:#fff;
-    --primary-color:#63ff69;
-    --secondary-color:#000;
-    --alpha-color:rgba(0,0,0,0.5);
-    --shadow:0 15px 40px var(--alpha-color);
-    --customn:#0c1126;
-    --searchbox:#123f3b;
-    --text-color2:#8092A1;
+:root {
+  --background: darkslategray;
+  --text-color: #fff;
+  --primary-color: #63ff69;
+  --secondary-color: #000;
+  --alpha-color: rgba(0, 0, 0, 0.5);
+  --shadow: 0 15px 40px var(--alpha-color);
+  --customn: #0c1126;
+  --searchbox: #123f3b;
+  --text-color2: #8092a1;
+  --text-color3: #0d6efd;
+  --logo: #f5c518;
 }
 
 /* body */
-body{
-    height: 100vh;
-    width: 100vw;
-    overflow-y: auto;
-    background-color: var(--background);
-    color: var(--text-color);
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  background-color: var(--background);
+  color: var(--text-color);
 }
 
 /* Header */
-.header{
-    height: 10vh;
-    padding: 1.3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header {
+  height: 10vh;
+  padding: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 18%;
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 20%;
+  /* border:1px dashed #000; */
 }
-.logo span{
-    display: inline-block;
+.logo a {
+  text-decoration: none;
+  color: var(--customn);
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-left: 20px;
+  background-color: var(--logo);
+  border-radius: 5px;
+  padding: 1px 10px;
+  /* height: 1.5rem; */
 }
-.logo a{
-    text-decoration: none;
-    color: var(--text-color);
-}
-.logo img{
+/* .logo img{
     width: auto;
     height: 61px;
     border-radius: 2.5rem;
     margin-right: 0.8rem;
     max-height: 6rem;
     max-width: 18rem;
-}
-.favourites{
-    color:var(--text-color);
-    font-size: 0.9rem;
-    font-weight:600;
-    margin-left: 30px;
-}
+} */
 
-.container-searchbox{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 55%;
-
+.favourites {
+  color: var(--text-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 30px;
 }
 
-.searchBox{
-    padding: 0.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    background-color:var(--searchbox);
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 50%;
-    margin-right: 4rem;
+.container-searchbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 75%;
+  /* border:1px dashed #000; */
+}
+
+.searchBox {
+  padding: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: var(--searchbox);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  margin-left: 1%;
+  margin-right: 15%;
 }
 .searchBox input {
-    font-size: 1.1rem;
-    padding: 0.6rem;
-    padding-left: 0.1rem;
-    background-color: transparent;
-    width: 80%;
-    height: 0.7rem;
-    border: 0;
-    margin-left: 0.3rem;
-    margin-right: 0.3rem;
-    color: white;
+  font-size: 1.1rem;
+  padding: 0.6rem;
+  padding-left: 0.1rem;
+  background-color: transparent;
+  width: 80%;
+  height: 0.7rem;
+  border: 0;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  color: white;
 }
 .searchBox input:focus {
-    outline: none;
+  outline: none;
 }
-.searchBox i{
-    color: var(--text-color);
+.searchBox i {
+  color: var(--text-color);
 }
 
 .profile-photo {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 1.5rem;
-    margin-left: 0.8rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.5rem;
+  margin-left: 0.8rem;
 }
-.bell{
-    color:#E7E7E6;
+.bell {
+  color: #e7e7e6;
 }
