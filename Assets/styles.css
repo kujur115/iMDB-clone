@@ -120,3 +120,125 @@ body {
 .bell {
   color: #e7e7e6;
 }
+hr {
+  margin: 0.5rem;
+}
+/* movies Section */
+
+#movie-detail-container {
+  margin: 0;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-nav {
+  position: relative;
+  height: 35px;
+  /* width: 99%; */
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+.inner-container {
+  position: relative;
+  height: 100%;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.element-container {
+  padding: 5px;
+  font-size: small;
+  /* border-right: #8092a1; */
+}
+.element-container p {
+  border-right: 1px solid #8092a1;
+  padding-right: 10px;
+}
+
+/* movie title */
+
+.title-container {
+  /* padding: 10px; */
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+}
+.title {
+  position: relative;
+  width: auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.title-inner-container {
+  position: relative;
+  margin-top: -25px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+.title-inner-container .element-container p {
+  font-size: 0.75rem;
+  color: var(--text-color);
+  font-weight: 300;
+}
+
+/* IMDb rating */
+
+.imdb-ratings .inner-container {
+  margin-right: 10px;
+  text-align: center;
+  /* border: none; */
+}
+.imdb-ratings .inner-container p {
+  border: none;
+  /* font-size: 1rem; */
+}
+
+p.r-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+p.r-val{
+  font-size: large;
+  margin-top: 0;
+}
+
+/* movie details */
+.poster-details-container{
+  display: flex;
+  margin: 0;
+  justify-content: flex-start;
+}
+.poster-details-container img{
+  max-width: 40%;
+}
+.movie{
+  padding-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+.movie .genre{
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.genre .element-container{
+  border: 1.5px solid #8092a1;
+  margin: 5px;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  /* padding: 3px; */
+  border-radius: 10px;
+}
+.genre .element-container p{
+  margin-top: -3px;
+  margin-left: 8px;
+}
