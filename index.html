@@ -23,8 +23,21 @@
       </div>
       <div class="container-searchbox">
         <div class="searchBox">
-          <input type="text" name="" id="" placeholder="Search" />
-          <i class="fas fa-search"></i>
+          <div class="search">
+            <input type="text" name="movie" id="search" placeholder="Search" />
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="autocomplete">
+            <ul>
+              <li>
+                <img
+                  src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
+                  alt=""
+                />
+                <span>Chor Nikal ke Bhaga</span><span>2023</span>
+              </li>
+            </ul>
+          </div>
         </div>
         <i class="fas bell fa-bell"></i>
         <img src="./Assets/profile.jpg" alt="" class="profile-photo" />
@@ -65,7 +78,7 @@
           <div class="inner-container">
             <div class="element-container">
               <p class="r-title">iMDB RATING</p>
-              <p class="r-val">6.7/10</p>
+              <p class="r-val"><span class="text">6.7</span>/10</p>
             </div>
             <div class="element-container">
               <p class="r-title">YOUR RATING</p>
@@ -105,21 +118,230 @@
           </div>
           <hr />
           <div class="details-crew">
-            <p><span>Director</span> <span>Ryan Coogler</span></p>
+            <p>
+              <span class="text-highlight">Director</span>
+              <span>Ryan Coogler</span>
+            </p>
           </div>
           <hr />
           <div class="details-crew">
             <p>
-              <span>Writers</span>
+              <span class="text-highlight">Writers</span>
               <span>Ryan Coogler, Joe Robert Cole, Stan Lee</span>
             </p>
           </div>
           <hr />
           <div class="details-crew">
             <p>
-              <span>Stars</span>
+              <span class="text-highlight">Stars</span>
               <span>Letitia Wright, Lupita Nyong'o, Danai Gurira</span>
             </p>
+          </div>
+          <hr />
+          <div class="details-crew">
+            <p>
+              <span class="text-highlight">Languages</span>
+              <span>Spanish, Haitian, English, Xhosa, Maya, French</span>
+            </p>
+          </div>
+          <hr />
+          <div class="details-crew">
+            <p>
+              <span class="text-highlight">Country</span>
+              <span>United States</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="other-movies">
+      <div class="latest-Movies">
+        <h4>Latest Movies</h4>
+        <div class="card-container">
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8.4</p>
+            </div>
+            <div class="card-title">
+              <p>John Wick: Chapter 4</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8.9</p>
+            </div>
+            <div class="card-title">
+              <p>The Last of Us</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8</p>
+            </div>
+            <div class="card-title">
+              <p>Chor Nikal ke Bhaga</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8.4</p>
+            </div>
+            <div class="card-title">
+              <p>John Wick: Chapter 4</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8.9</p>
+            </div>
+            <div class="card-title">
+              <p>The Last of Us</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8</p>
+            </div>
+            <div class="card-title">
+              <p>Chor Nikal ke Bhaga</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="latest-Movies">
+        <h4>Latest Movies</h4>
+        <div class="card-container">
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8.4</p>
+            </div>
+            <div class="card-title">
+              <p>John Wick: Chapter 4</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8.9</p>
+            </div>
+            <div class="card-title">
+              <p>The Last of Us</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8</p>
+            </div>
+            <div class="card-title">
+              <p>Chor Nikal ke Bhaga</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8.4</p>
+            </div>
+            <div class="card-title">
+              <p>John Wick: Chapter 4</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8.9</p>
+            </div>
+            <div class="card-title">
+              <p>The Last of Us</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
+          </div>
+          <div class="movie-card">
+            <img
+              src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
+              alt=""
+            />
+            <div class="card-ratings">
+              <p>8</p>
+            </div>
+            <div class="card-title">
+              <p>Chor Nikal ke Bhaga</p>
+            </div>
+            <div class="card-watchlist">
+              <button>Watchlist</button>
+            </div>
           </div>
         </div>
       </div>

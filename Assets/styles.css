@@ -6,7 +6,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 :root {
-  --background: darkslategray;
+  --background: black;
   --text-color: #fff;
   --primary-color: #63ff69;
   --secondary-color: #000;
@@ -15,8 +15,9 @@
   --customn: #0c1126;
   --searchbox: #123f3b;
   --text-color2: #8092a1;
-  --text-color3: #0d6efd;
+  --text-color3: #2857a4;
   --logo: #f5c518;
+  --card: rgb(36, 33, 33);
 }
 
 /* body */
@@ -78,8 +79,21 @@ body {
   width: 75%;
   /* border:1px dashed #000; */
 }
-
 .searchBox {
+  /* padding: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem; */
+  background-color: var(--searchbox);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  width: 70%;
+  margin-left: 1%;
+  margin-right: 15%;
+}
+.search {
   padding: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -88,11 +102,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
+  width: 100%;
   margin-left: 1%;
-  margin-right: 15%;
+  margin-right: 1%;
 }
-.searchBox input {
+.search input {
   font-size: 1.1rem;
   padding: 0.6rem;
   padding-left: 0.1rem;
@@ -104,11 +118,20 @@ body {
   margin-right: 0.3rem;
   color: white;
 }
-.searchBox input:focus {
+.search input:focus {
   outline: none;
 }
-.searchBox i {
+.search i {
   color: var(--text-color);
+}
+.autocomplete {
+  position: absolute;
+  /* border: 1px dashed white; */
+  top: 40px;
+  width: 52%;
+  background-color: var(--searchbox);
+  z-index: 99;
+  border-radius: 4px;
 }
 
 .profile-photo {
@@ -127,7 +150,7 @@ hr {
 
 #movie-detail-container {
   margin: 0;
-  padding: 0 10px;
+  padding: 0 40px;
   display: flex;
   flex-direction: column;
 }
@@ -202,33 +225,30 @@ p.r-title {
   font-weight: 700;
   margin-bottom: 0;
 }
-p.r-val{
+p.r-val {
   font-size: large;
   margin-top: 0;
 }
 
 /* movie details */
-.poster-details-container{
+.poster-details-container {
   display: flex;
   margin: 0;
   justify-content: flex-start;
 }
-.poster-details-container img{
-  max-width: 40%;
-}
-.movie{
-  padding-left: 5%;
+
+.movie {
+  padding-left: 2%;
   display: flex;
   flex-direction: column;
-  justify-content:flex-start;
+  justify-content: flex-start;
 }
-.movie .genre{
+.movie .genre {
   display: flex;
   justify-content: flex-start;
-
 }
 
-.genre .element-container{
+.genre .element-container {
   border: 1.5px solid #8092a1;
   margin: 5px;
   height: 1.5rem;
@@ -238,7 +258,97 @@ p.r-val{
   /* padding: 3px; */
   border-radius: 10px;
 }
-.genre .element-container p{
+.genre .element-container p {
   margin-top: -3px;
   margin-left: 8px;
+}
+.plot {
+  /* padding-top: 10px; */
+  /* font: 1rem; */
+  padding: 10px 12px 0;
+}
+.details-crew {
+  padding: 10px 2% 0;
+}
+.text-highlight {
+  color: var(--text-color3);
+  font-weight: 800;
+  width: 100px;
+  font-size: 17px;
+  /* border: 1px dashed black; */
+  padding-right: 20px;
+}
+
+/* Other Movie Sections */
+
+#other-movies {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.latest-Movies {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+.card-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  /* border: 1px dashed white; */
+  margin: 0 10px;
+  /* background-color: var(--card); */
+  border-radius: 4px;
+}
+
+.movie-card img {
+  height: 250px;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 4px 4px 0 0;
+}
+.card-ratings {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 99%;
+  padding: 2% 7%;
+  font-size: 18px;
+}
+.movie-card p {
+  margin-bottom: 0;
+}
+.card-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 2% 7%;
+  font-size: 16px;
+}
+.card-watchlist {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 2% 7%;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.card-watchlist button {
+  border: none;
+  border-radius: 4px;
+  padding: 2px;
+  width: 100%;
+  font-weight: 700;
+  color: var(--text-color3);
 }
