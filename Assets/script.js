@@ -3,7 +3,6 @@ const searchBox = document.getElementById("searchBox");
 const movieDetail = document.getElementById("movie-detail-container");
 let movieList = document.getElementsByClassName("movieList");
 
-// const list= document.getElementsByClassName('autocomplete-list')[0];
 search.addEventListener("keyup", getMovie);
 
 async function getMovie() {
@@ -38,7 +37,8 @@ function addToAutocomplete(results) {
     let li = document.createElement("li");
     li.setAttribute("data-imdbId", `${results[i].imdbID}`);
     li.setAttribute("class", "movieList");
-    li.innerHTML = `<p>
+    li.innerHTML = `<a href="./movie.html?ref=${results[i].imdbID}">
+    <p>
         <span class="list-title">${results[i].Title}</span>
         <span class="list-year">${results[i].Year}</span>
       </p>
@@ -47,170 +47,115 @@ function addToAutocomplete(results) {
         class="list-poster"
         src='${results[i].Poster}'
         alt="${results[i].Title}"
-      />`;
+      />
+      </a>`;
     list.appendChild(li);
-    li.addEventListener("click", (e) => {
-      var imdbID = e.target.dataset.imdbid;
-      getMovieDetails(imdbID);
-    });
-
-    // let p=document.createElement('p');
-    // let listTitle=document.createElement('span');
-    // listTitle.setAttribute('class','list-title');
-    // let listYear=document.createElement('span');
-    // listYear.setAttribute('class','list-year');
-    // p.appendChild(listTitle);
-    // p.appendChild(listYear);
-    // li.appendChild(p);
-
-    // let img=document.createElement('img');
-    // img.setAttribute('class','list-poster');
-    // img.src=`${results[i]}`;
   }
 }
-// getMovie();
 
-// document.addEventListener("click", (e) => {
-//   console.log(e);
-//   if (e.target == "li.movieList") {
-//     console.log("aaaaaa");
-//     let mm = e.target;
-//     let imdbid = mm.dataset.imdbid;
-//     console.log(imdbid);
-//     getMovieDetails(imdbid);
-//   } else {
-//     console.log("bbbbb");
-//   }
-// });
+const latestMovies = [
+  {
+    Title: "Black Adam",
+    imdbID: "tt6443346",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BYzZkOGUwMzMtMTgyNS00YjFlLTg5NzYtZTE3Y2E5YTA5NWIyXkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_SX300.jpg",
+  },
 
-async function getMovieDetails(imdbID) {
-  // const movie = search.value;
-  const url = `http://www.omdbapi.com/?apikey=dd8897cf&i=${imdbID}&plot=full`;
+  {
+    Title: "Avatar: The Way of Water",
+    Year: "2022",
+    imdbID: "tt1630029",
+    Type: "movie",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BYjhiNjBlODctY2ZiOC00YjVlLWFlNzAtNTVhNzM1YjI1NzMxXkEyXkFqcGdeQXVyMjQxNTE1MDA@._V1_SX300.jpg",
+  },
+  {
+    Title: "The Guardians of the Galaxy: Holiday Special",
+    Year: "2022",
+    imdbID: "tt13623136",
+    Type: "movie",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BOGJjMzlmNzctMWI4Yi00MjcyLWFmYzAtN2JmZjU0YTM4YmRmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_SX300.jpg",
+  },
+  {
+    Title: "The Elephant Whisperers",
+    Year: "2022",
+    imdbID: "tt23628262",
+    Type: "movie",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BYWQ4ZjE5YjEtN2JkNC00NGExLTkzNDYtMDQ1YTcyZjU1NzY4XkEyXkFqcGdeQXVyMTUyNjc4OTIx._V1_SX300.jpg",
+  },
+  {
+    Title: "Murder Mystery 2",
+    Year: "2023",
+    imdbID: "tt15255288",
+    Type: "movie",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BODkzMmQ1OGItYTZkNi00NGMxLWJiMjMtZmY0YzdjNDE3NWRjXkEyXkFqcGdeQXVyMjAwNzczNTU@._V1_SX300.jpg",
+  },
+  {
+    Title: "Pathaan",
+    Year: "2023",
+    imdbID: "tt12844910",
+    Type: "movie",
+    Poster:
+      "https://m.media-amazon.com/images/M/MV5BM2QzM2JiNTMtYjU4Ny00MDZkLTk3MmUtYTRjMzVkZGJlNmYyXkEyXkFqcGdeQXVyMTUzNTgzNzM0._V1_SX300.jpg",
+  },
+];
 
-  // while (document.getElementsByClassName("autocomplete")[0]) {
-  //   document.getElementsByClassName("autocomplete")[0].remove();
-  // }
-
-  const response = await fetch(url);
-
-  const data = await response.json();
-  console.log(data);
-  while (document.getElementsByClassName("autocomplete")[0]) {
-    document.getElementsByClassName("autocomplete")[0].remove();
+function addLatestMovie() {
+  const movieContainer = document.getElementsByClassName("card-container");
+  for (let i = 0; i < movieContainer.length; i++) {
+    for (let j = 0; j < latestMovies.length; j++) {
+      let div = document.createElement("div");
+      div.setAttribute("class", "movie-card");
+      div.innerHTML = `
+    <a href="./movie.html?ref=${latestMovies[j].imdbID}">
+    <img
+      src="${latestMovies[j].Poster}"
+      alt=""
+    />
+  </a>
+  <div class="card-ratings">
+    <p>8.4</p>
+  </div>
+  <div class="card-title">
+    <p>${latestMovies[j].Title}</p>
+  </div>
+  <div class="card-watchlist">
+    <button onclick="addToFav('${latestMovies[j].Title}','${latestMovies[j].imdbID}',)" >Favourate</button>
+  </div>
+    `;
+      movieContainer[i].appendChild(div);
+    }
   }
-  // if (data.Response == "True") {
-  //   addToAutocomplete(data.Search);
-  // }
-  addToDetails(data);
 }
-function addToDetails(data) {
-  movieDetail.innerHTML = `
-  <div class="movie-nav">
-        <div class="inner-container">
-          <div class="element-container">
-            <p>Cast & Crew</p>
-          </div>
-          <div class="element-container">
-            <p>User reviews</p>
-          </div>
-          <div class="element-container">
-            <p>Trivia</p>
-          </div>
-        </div>
-      </div>
-      <div class="title-container">
-        <div class="title">
-          <div class="movie-title"><p>${data.Title}</p></div>
-          <div class="title-inner-container">
-            <div class="element-container">
-              <p>${data.Year}</p>
-            </div>
-            <div class="element-container">
-              <p>${data.Rated}</p>
-            </div>
-            <div class="element-container">
-              <p>${data.Runtime}</p>
-            </div>
-          </div>
-        </div>
+addLatestMovie();
+function renderFav() {
+  const fav = document.getElementById("fav-section");
+  fav.innerHTML = `<h4>Favourates</h4>
+  <div class="fav-container">
+  </div>`;
+  const favourite = document.getElementsByClassName("fav-container")[0];
+  for (let i = 0; i < localStorage.length; i++) {
+    let a = document.createElement("a");
+    a.href = `./movie.html?ref=${localStorage.getItem(localStorage.key(i))}`;
+    a.innerHTML = `
+    <div class="fav-card">
+      <p>${localStorage.key(i)}</p>
+    </div>`;
+    favourite.appendChild(a);
+  }
+}
+window.onload = renderFav();
 
-        <div class="imdb-ratings">
-          <div class="inner-container">
-            <div class="element-container">
-              <p class="r-title">iMDB RATING</p>
-              <p class="r-val"><span class="text">${data.imdbRating}</span>/10</p>
-            </div>
-            <div class="element-container">
-              <p class="r-title">YOUR RATING</p>
-              <p class="r-val">Rate</p>
-            </div>
-            <div class="element-container">
-              <p class="r-title">POPULARITY</p>
-              <p class="r-val">${data.Metascore}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="poster-details-container">
-        <img
-          src="${data.Poster}"
-          alt=""
-        />
-
-        <div class="movie">
-          <div class="genre">
-            <div class="element-container">
-              <p>Action</p>
-            </div>
-            <div class="element-container">
-              <p>Adventure</p>
-            </div>
-            <div class="element-container">
-              <p>Drama</p>
-            </div>
-          </div>
-          <div class="plot">
-            <p>
-              ${data.Plot}
-            </p>
-          </div>
-          <hr />
-          <div class="details-crew">
-            <p>
-              <span class="text-highlight">Director</span>
-              <span>${data.Director}</span>
-            </p>
-          </div>
-          <hr />
-          <div class="details-crew">
-            <p>
-              <span class="text-highlight">Writers</span>
-              <span>${data.Writer}</span>
-            </p>
-          </div>
-          <hr />
-          <div class="details-crew">
-            <p>
-              <span class="text-highlight">Stars</span>
-              <span>${data.Actors}</span>
-            </p>
-          </div>
-          <hr />
-          <div class="details-crew">
-            <p>
-              <span class="text-highlight">Languages</span>
-              <span>${data.Language}</span>
-            </p>
-          </div>
-          <hr />
-          <div class="details-crew">
-            <p>
-              <span class="text-highlight">Country</span>
-              <span>${data.Country}</span>
-            </p>
-          </div>
-        </div>
-      </div>
-  `;
+function addToFav(title, imdbID) {
+  if (localStorage.getItem(title) == null) {
+    localStorage.setItem(title, imdbID);
+    console.log("added to fav");
+  } else {
+    localStorage.removeItem(title);
+    console.log("removed from fav");
+  }
+  renderFav();
 }

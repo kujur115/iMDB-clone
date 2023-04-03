@@ -1,41 +1,24 @@
-function getParam(key) {
-  // Arrow function to get the parameter
-  // of the specified key
-
-  // Address of the current window
-  let address = window.location.search;
-  console.log(address);
-
-  // Returns a URLSearchParams object instance
-  let parameterList = new URLSearchParams(address);
-
-  // Returning the respected value associated
-  // with the provided key
-  return parameterList.get(key);
-}
-// Gets the value associated with the key
-const t = getParam("ref");
 const movieDetail = document.getElementById("movie-detail-container");
 
-getMovieDetails(t);
-async function getMovieDetails(imdbID) {
-  // const movie = search.value;
-  const url = `http://www.omdbapi.com/?apikey=dd8897cf&i=${imdbID}&plot=full`;
+// Gets the value associated with the key
+const id = getParam("ref");
 
-  // while (document.getElementsByClassName("autocomplete")[0]) {
-  //   document.getElementsByClassName("autocomplete")[0].remove();
-  // }
+function getParam(key) {
+  let address = window.location.search;
+  // console.log(address);
+
+  let parameterList = new URLSearchParams(address);
+  return parameterList.get(key);
+}
+
+getMovieDetails(id);
+async function getMovieDetails(imdbID) {
+  const url = `http://www.omdbapi.com/?apikey=dd8897cf&i=${imdbID}&plot=full`;
 
   const response = await fetch(url);
 
   const data = await response.json();
-  console.log(data);
-  while (document.getElementsByClassName("autocomplete")[0]) {
-    document.getElementsByClassName("autocomplete")[0].remove();
-  }
-  // if (data.Response == "True") {
-  //   addToAutocomplete(data.Search);
-  // }
+
   addToDetails(data);
 }
 function addToDetails(data) {
@@ -96,13 +79,7 @@ function addToDetails(data) {
           <div class="movie">
             <div class="genre">
               <div class="element-container">
-                <p>Action</p>
-              </div>
-              <div class="element-container">
-                <p>Adventure</p>
-              </div>
-              <div class="element-container">
-                <p>Drama</p>
+                <p>${data.Genre}</p>
               </div>
             </div>
             <div class="plot">
@@ -147,7 +124,22 @@ function addToDetails(data) {
             </div>
           </div>
         </div>
+        <div class="ratings">
+        <h5>Ratings</h5>
+        <div class="rating-container">
+       
+        </div>
+      </div>
     `;
+  // add the ratings
+  const rating = document.getElementsByClassName("rating-container")[0];
+  for (let i = 0; i < data.Ratings.length; i++) {
+    let r = document.createElement("div");
+    r.setAttribute("class", "rating-movies");
+    r.innerHTML = `
+      <h6>${data.Ratings[i].Source}</h6>
+      <p>${data.Ratings[i].Value}</p>
+      `;
+    rating.appendChild(r);
+  }
 }
-
-document.getElementById("params").innerHTML = `<p> ${getParam("ref")} </p>`;
