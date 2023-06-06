@@ -22,7 +22,24 @@
       </div>
       <a href="#fav-section" class="favourites">Favourites</a>
       <!-- <span class="favourites">Favourites</span> -->
-
+      <!-- <div className="search-container">
+          <input onChange={this.handleChange} />
+          <button id="search-btn" onClick={this.handleSearch}>
+            Search
+          </button>
+        </div>
+        
+          <div className="search-results">
+            <div className="search-result">
+              <img src={result.Poster} alt="search-pic" />
+              <div className="movie-info">
+                <span>{result.Title}</span>
+                <button onClick={() => this.handleAddToMovies(result)}>
+                  Add to Movies
+                </button>
+              </div>
+            </div>
+          </div> -->
       <div class="container-searchbox">
         <div id="searchBox">
           <div class="search">
@@ -33,16 +50,18 @@
             <hr />
             <ul class="autocomplete-list">
               <li>
-                <p>
-                  <span class="list-title">Chor Nikal ke Bhaga</span>
-                  <span class="list-year">2023</span>
-                </p>
-
                 <img
                   class="list-poster"
                   src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
                   alt=""
                 />
+                <p>
+                  <span class="list-title">Chor Nikal ke Bhaga</span>
+                  <span class="list-year">2023</span>
+                </p>
+                <button>Add to favourites</button>
+
+                
               </li>
             </ul>
           </div> -->
@@ -75,7 +94,7 @@
       /></a>
     </section>
     <section id="fav-section">
-      <h4>Favourite Movies</h4>
+      <!-- <h4>Favourite Movies</h4>
       <div class="fav-container">
         <a href="./movie.html?ref=tt10366206">
           <div class="fav-card">
@@ -87,7 +106,7 @@
             <p>John Wick: Chapter 4</p>
           </div>
         </a>
-      </div>
+      </div> -->
     </section>
     <section id="other-movies">
       <div class="latest-Movies">

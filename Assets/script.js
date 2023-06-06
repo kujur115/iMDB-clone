@@ -1,7 +1,3 @@
-const searchBox = document.getElementById("searchBox");
-const movieDetail = document.getElementById("movie-detail-container");
-let movieList = document.getElementsByClassName("movieList");
-
 const latestMovies = [
   {
     Title: "Black Adam",
@@ -52,59 +48,122 @@ const latestMovies = [
   },
 ];
 
-function addLatestMovie() {
-  const movieContainer = document.getElementsByClassName("card-container");
-  for (let i = 0; i < movieContainer.length; i++) {
-    for (let j = 0; j < latestMovies.length; j++) {
-      let div = document.createElement("div");
-      div.setAttribute("class", "movie-card");
-      div.innerHTML = `
-    <a href="./movie.html?ref=${latestMovies[j].imdbID}">
-    <img
-      src="${latestMovies[j].Poster}"
-      alt=""
-    />
-  </a>
-  <div class="card-ratings">
-    <p>8.4</p>
-  </div>
-  <div class="card-title">
-    <p>${latestMovies[j].Title}</p>
-  </div>
-  <div class="card-watchlist">
-    <button onclick="addToFav('${latestMovies[j].Title}','${latestMovies[j].imdbID}',)" >Favourate</button>
-  </div>
-    `;
-      movieContainer[i].appendChild(div);
-    }
-  }
-}
-addLatestMovie();
-function renderFav() {
-  const fav = document.getElementById("fav-section");
-  fav.innerHTML = `<h4>Favourates</h4>
-  <div class="fav-container">
-  </div>`;
-  const favourite = document.getElementsByClassName("fav-container")[0];
-  for (let i = 0; i < localStorage.length; i++) {
-    let a = document.createElement("a");
-    a.href = `./movie.html?ref=${localStorage.getItem(localStorage.key(i))}`;
-    a.innerHTML = `
-    <div class="fav-card">
-      <p>${localStorage.key(i)}</p>
-    </div>`;
-    favourite.appendChild(a);
-  }
-}
-window.onload = renderFav();
+const movieDetail = document.getElementById("movie-detail-container");
+const movieContainer = document.getElementsByClassName("card-container")[0];
+// console.log(movieContainer);
+const favSection = document.getElementById("fav-section");
 
-function addToFav(title, imdbID) {
-  if (localStorage.getItem(title) == null) {
-    localStorage.setItem(title, imdbID);
-    console.log("added to fav");
-  } else {
-    localStorage.removeItem(title);
-    console.log("removed from fav");
+let FavourateMovies = [];
+
+function addLatestMovie() {
+  const fragment = document.createDocumentFragment();
+
+  latestMovies.forEach((movie) => {
+    const div = document.createElement("div");
+    div.setAttribute("class", "movie-card");
+
+    const link = document.createElement("a");
+    link.href = `./movie.html?ref=${movie.imdbID}`;
+
+    const img = document.createElement("img");
+    img.src = movie.Poster;
+    img.alt = "";
+
+    link.appendChild(img);
+    div.appendChild(link);
+
+    const ratings = document.createElement("div");
+    ratings.setAttribute("class", "card-ratings");
+    const ratingText = document.createElement("p");
+    ratingText.textContent = "8.4";
+    ratings.appendChild(ratingText);
+    div.appendChild(ratings);
+
+    const title = document.createElement("div");
+    title.setAttribute("class", "card-title");
+    const titleText = document.createElement("p");
+    titleText.textContent = movie.Title;
+    title.appendChild(titleText);
+    div.appendChild(title);
+
+    const watchlist = document.createElement("div");
+    watchlist.setAttribute("class", "card-watchlist");
+    const favButton = document.createElement("button");
+
+    const isFavourite = FavourateMovies.some(
+      (mov) => mov.imdbID === movie.imdbID
+    );
+    favButton.textContent = isFavourite ? "Remove from Fav" : "Add To Fav";
+    favButton.addEventListener("click", () => addToFav(movie, isFavourite));
+    watchlist.appendChild(favButton);
+    div.appendChild(watchlist);
+
+    fragment.appendChild(div);
+  });
+  // movieContainer.forEach((container) => {
+  //   container.appendChild(fragment);
+  // });
+  movieContainer.appendChild(fragment);
+}
+
+function renderFav() {
+  const storedArrayString = localStorage.getItem("Favourites");
+  FavourateMovies = JSON.parse(storedArrayString) || [];
+
+  if (FavourateMovies.length === 0) {
+    favSection.textContent = "";
+    return;
   }
+
+  const favContainer = document.createElement("div");
+  favContainer.setAttribute("class", "fav-container");
+
+  const favHeading = document.createElement("h4");
+  favHeading.textContent = "Favourites";
+
+  FavourateMovies.forEach((movie) => {
+    const a = document.createElement("a");
+    a.href = `./movie.html?ref=${movie.imdbID}`;
+
+    const favCard = document.createElement("div");
+    favCard.setAttribute("class", "fav-card");
+
+    const title = document.createElement("p");
+    title.textContent = movie.Title;
+    favCard.appendChild(title);
+
+    a.appendChild(favCard);
+    favContainer.appendChild(a);
+  });
+
+  favSection.textContent = "";
+  favSection.appendChild(favHeading);
+  favSection.appendChild(favContainer);
+  return;
+}
+
+function init() {
   renderFav();
+  addLatestMovie();
+}
+
+window.onload = init;
+
+function addToFav(movie, isFavourite) {
+  const storedArrayString = localStorage.getItem("Favourites");
+  FavourateMovies = JSON.parse(storedArrayString) || [];
+
+  if (isFavourite) {
+    FavourateMovies = FavourateMovies.filter(
+      (mov) => mov.imdbID !== movie.imdbID
+    );
+  } else {
+    FavourateMovies.unshift(movie);
+  }
+
+  const arrayString = JSON.stringify(FavourateMovies);
+  localStorage.setItem("Favourites", arrayString);
+  // renderFav();
+  // addLatestMovie();
+  location.reload();
 }
