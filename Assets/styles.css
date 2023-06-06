@@ -22,8 +22,8 @@
 
 /* body */
 body {
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh; */
+  /* width: 100vw; */
   overflow-y: auto;
   background-color: var(--background);
   color: var(--text-color);
@@ -393,18 +393,25 @@ p.r-val {
   padding: 0 20px;
 }
 .card-container {
-  display: flex;
+  display: inline-block;
   width: 100%;
   justify-content: space-between;
   align-items: flex-start;
   /* flex-wrap: wrap; */
   overflow: auto;
   white-space: nowrap;
-  /* overflow-x: scroll; */
+  overflow-x: scroll;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
-
+.card-container::-webkit-scrollbar {
+  display: none;
+}
 .movie-card {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -415,6 +422,7 @@ p.r-val {
   border-radius: 4px;
   overflow: hidden;
 }
+
 .movie-card:hover {
   box-shadow: var(--shadow);
 }
