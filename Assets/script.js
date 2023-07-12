@@ -90,7 +90,7 @@ function addLatestMovie() {
     watchlist.setAttribute("class", "card-watchlist");
     const favButton = document.createElement("button");
 
-    const isFavourite = FavourateMovies.some(
+    let isFavourite = FavourateMovies.some(
       (mov) => mov.imdbID === movie.imdbID
     );
     favButton.textContent = isFavourite ? "Remove from Fav" : "Add To Fav";
@@ -103,6 +103,7 @@ function addLatestMovie() {
   // movieContainer.forEach((container) => {
   //   container.appendChild(fragment);
   // });
+  movieContainer.innerHTML="";
   movieContainer.appendChild(fragment);
 }
 
@@ -143,6 +144,8 @@ function renderFav() {
 }
 
 function init() {
+  const storedArrayString = localStorage.getItem("Favourites");
+  FavourateMovies = JSON.parse(storedArrayString) || [];
   renderFav();
   addLatestMovie();
 }
@@ -163,7 +166,7 @@ function addToFav(movie, isFavourite) {
 
   const arrayString = JSON.stringify(FavourateMovies);
   localStorage.setItem("Favourites", arrayString);
-  // renderFav();
-  // addLatestMovie();
-  location.reload();
+  renderFav();
+  addLatestMovie();
+ 
 }
