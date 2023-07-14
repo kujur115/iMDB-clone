@@ -1,4 +1,3 @@
-
 const search = document.getElementById("search");
 const searchBox = document.getElementById("searchBox");
 search.addEventListener("keyup", getMovie);
@@ -73,10 +72,6 @@ function addToAutocomplete(results) {
       addToFavfromSearch(data);
       isFavourite = FavourateMovies.some((mov) => mov.imdbID === data.imdbID);
       favButton.textContent = isFavourite ? "Remove from Fav" : "Add To Fav";
-      while (document.getElementsByClassName("autocomplete")[0]) {
-        document.getElementsByClassName("autocomplete")[0].remove();
-      }
-      search.value = "";
     }
     favButton.addEventListener("click", function () {
       toggleFav(results[i]);

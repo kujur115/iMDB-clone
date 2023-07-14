@@ -8,7 +8,7 @@
 :root {
   --background: black;
   --text-color: #fff;
-  --primary-color: #63ff69;
+  --highlight-color: #63ff69;
   --secondary-color: #000;
   --alpha-color: rgba(0, 0, 0, 0.5);
   --shadow: 0 10px 40px rgb(35, 43, 38);
@@ -125,81 +125,6 @@ body {
 .search i {
   color: var(--text-color);
 }
-/*
-.search-container input {
-  height: 43px;
-  width: 600px;
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
-  border: none;
-  font-size: 16px;
-  padding: 0 10px;
-  box-sizing: border-box;
-}
-.search-container {
-  position: relative;
-}
-.search-results {
-  position: absolute;
-  background: #fff;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #e1e1e1;
-  top: 42px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  z-index: 100;
-}
-.search-result .movie-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.search-result .movie-info button {
-  margin: 20px 10px;
-  background: #21ba45;
-  color: #fff;
-  font-weight: 600;
-  font-size: 14px;
-  border: none;
-  padding: 9px 0;
-  border-radius: 4px;
-}
-.search-result {
-  display: flex;
-}
-.search-result img {
-  height: 150px;
-}
-.search-result > div span {
-  font-size: 20px;
-  padding: 10px;
-  font-weight: 600;
-}
-
-.search-container input:focus,
-.search-container button:focus,
-.footer button:focus,
-.search-result .movie-info button:focus {
-  outline: none;
-}
-.search-container button:hover,
-.footer button:hover,
-.search-result .movie-info button:hover {
-  cursor: pointer;
-}
-#search-btn {
-  background: #f2711c;
-  height: 43px;
-  color: #fff;
-  border: none;
-  font-size: 15px;
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
-  position: relative;
-  top: -1px;
-}
-*/
 
 .autocomplete {
   position: absolute;
@@ -362,6 +287,14 @@ hr {
   color: var(--text-color);
   font-weight: 300;
 }
+.title-container .fav {
+  border: none;
+  border-radius: 4px;
+  padding: 2px;
+  width: 100%;
+  font-weight: 700;
+  color: var(--text-color3);
+}
 
 /* IMDb rating */
 
@@ -384,7 +317,9 @@ p.r-val {
   font-size: large;
   margin-top: 0;
 }
-
+.highlight {
+  color: var(--highlight-color);
+}
 /* movie details */
 .poster-details-container {
   display: flex;
@@ -404,19 +339,21 @@ p.r-val {
 }
 
 .genre .element-container {
-  border: 1.5px solid #8092a1;
   margin: 5px;
-  height: 1.5rem;
+
   display: flex;
   justify-content: center;
   /* align-items: center; */
   /* padding: 3px; */
-  border-radius: 10px;
-  box-shadow: var(--shadow);
 }
 .genre .element-container p {
   margin-top: -3px;
   margin-left: 8px;
+  padding-left: 8px;
+  height: 1.5rem;
+  border: 1.5px solid #8092a1;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
 }
 .plot {
   /* padding-top: 10px; */
@@ -443,23 +380,24 @@ p.r-val {
 .rating-container {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 30px;
   padding-top: 10px;
   margin-left: 20px;
 }
 .rating-movies {
   display: flex;
-  /* border: 1px dashed white; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 10px;
   height: 100px;
   border-radius: 10px;
-  /* background-color: #123f3b; */
   box-shadow: var(--shadow);
   border: 1.5px solid #8092a1;
+}
+.rating-movies h5 {
+  color: var(--text-color3);
 }
 .rating-movies p {
   margin: 0;
@@ -590,6 +528,10 @@ p.r-val {
   color: var(--text-color);
 }
 
+#favourites-detail-container{
+  padding-left: 30px;
+
+}
 .fav-card {
   width: 200px;
   height: 100px;
@@ -608,3 +550,4 @@ p.r-val {
 .fav-card:hover {
   box-shadow: var(--shadow);
 }
+

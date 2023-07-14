@@ -103,7 +103,7 @@ function addLatestMovie() {
   // movieContainer.forEach((container) => {
   //   container.appendChild(fragment);
   // });
-  movieContainer.innerHTML="";
+  movieContainer.innerHTML = "";
   movieContainer.appendChild(fragment);
 }
 
@@ -168,5 +168,4 @@ function addToFav(movie, isFavourite) {
   localStorage.setItem("Favourites", arrayString);
   renderFav();
   addLatestMovie();
- 
 }
