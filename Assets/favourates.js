@@ -31,7 +31,7 @@ function renderFav() {
   FavourateMovies = JSON.parse(storedArrayString) || [];
 
   if (FavourateMovies.length === 0) {
-    favSection.textContent = "";
+    favSection.textContent = "No Movies in favourates list";
     return;
   }
   const fragment = document.createDocumentFragment();
@@ -53,7 +53,7 @@ function renderFav() {
     const ratings = document.createElement("div");
     ratings.setAttribute("class", "card-ratings");
     const ratingText = document.createElement("p");
-    ratingText.textContent = movie.imdbRating?movie.imdbRating:8.4;
+    ratingText.textContent = movie.imdbRating ? movie.imdbRating : 8.4;
     ratings.appendChild(ratingText);
     div.appendChild(ratings);
 
@@ -78,7 +78,7 @@ function renderFav() {
 
     fragment.appendChild(div);
   });
-  favSection.innerHTML="";
+  favSection.innerHTML = "";
   favSection.appendChild(fragment);
   return;
 }
