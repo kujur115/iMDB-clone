@@ -33,7 +33,7 @@ function addToFav(movie) {
 getMovieDetails(id);
 
 async function getMovieDetails(imdbID) {
-  const url = `http://www.omdbapi.com/?apikey=dd8897cf&i=${imdbID}&plot=full`;
+  const url = `https://www.omdbapi.com/?apikey=dd8897cf&i=${imdbID}&plot=full`;
 
   try {
     const response = await fetch(url);
