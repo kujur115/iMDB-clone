@@ -1,3 +1,7 @@
+// script for the home page
+// page displays all the latest movies based on the latestMovies list
+
+// some preloaded movies for the latest movies section
 const latestMovies = [
   {
     Title: "Black Adam",
@@ -56,6 +60,7 @@ const favSection = document.getElementById("fav-section");
 let FavourateMovies = [];
 
 function addLatestMovie() {
+  // adds all the movies from the list to the latest movies section
   const fragment = document.createDocumentFragment();
 
   latestMovies.forEach((movie) => {
@@ -90,6 +95,7 @@ function addLatestMovie() {
     watchlist.setAttribute("class", "card-watchlist");
     const favButton = document.createElement("button");
 
+    // button displays based on if its in the favourate list or not
     let isFavourite = FavourateMovies.some(
       (mov) => mov.imdbID === movie.imdbID
     );
@@ -100,14 +106,13 @@ function addLatestMovie() {
 
     fragment.appendChild(div);
   });
-  // movieContainer.forEach((container) => {
-  //   container.appendChild(fragment);
-  // });
+ 
   movieContainer.innerHTML = "";
   movieContainer.appendChild(fragment);
 }
 
 function renderFav() {
+  // renders the list of movie titles which are present in favourate list
   const storedArrayString = localStorage.getItem("Favourites");
   FavourateMovies = JSON.parse(storedArrayString) || [];
 
@@ -153,6 +158,7 @@ function init() {
 window.onload = init;
 
 function addToFav(movie, isFavourite) {
+  // adds the given movie to favourate list or removes it
   const storedArrayString = localStorage.getItem("Favourites");
   FavourateMovies = JSON.parse(storedArrayString) || [];
 
@@ -163,9 +169,11 @@ function addToFav(movie, isFavourite) {
   } else {
     FavourateMovies.unshift(movie);
   }
-
+  // saves the favourate list in localstorage as json string
   const arrayString = JSON.stringify(FavourateMovies);
   localStorage.setItem("Favourites", arrayString);
+
+  // calls all the renders to create dynamic effect
   renderFav();
   addLatestMovie();
 }

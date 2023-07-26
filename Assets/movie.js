@@ -1,31 +1,33 @@
+// script for the movies page which displays the details of a movie based on the imdbID passed in the params as ref
+
 const movieDetail = document.getElementById("movie-detail-container");
 const id = getParam("ref");
 let FavourateMovies = [];
 
 function init() {
+  // function that loads first 
   const storedArrayString = localStorage.getItem("Favourites");
   FavourateMovies = JSON.parse(storedArrayString) || [];
-  console.log(FavourateMovies);
   movieDetail.innerHTML=`<p>Loading</p>`
 }
 
 window.onload = init;
 
 function getParam(key) {
+  // function to get the id of the movie from the param in the url
   const address = window.location.search;
   const parameterList = new URLSearchParams(address);
   return parameterList.get(key);
 }
 
 function addToFav(movie) {
+  // function to add/remove movies in the favourate list on called
   let isFavourite = FavourateMovies.some((mov) => mov.imdbID === movie.imdbID);
   const updatedMovies = isFavourite
     ? FavourateMovies.filter((mov) => mov.imdbID !== movie.imdbID)
     : [movie, ...FavourateMovies];
 
   FavourateMovies = updatedMovies;
-  // isFavourite ? console.log("added") : console.log("removed");
-  console.log(FavourateMovies);
   const arrayString = JSON.stringify(FavourateMovies);
   localStorage.setItem("Favourites", arrayString);
 }
@@ -33,6 +35,7 @@ function addToFav(movie) {
 getMovieDetails(id);
 
 async function getMovieDetails(imdbID) {
+  // function to get the movies detail using the given id to make api call 
   const url = `https://www.omdbapi.com/?apikey=dd8897cf&i=${imdbID}&plot=full`;
 
   try {
@@ -50,6 +53,7 @@ async function getMovieDetails(imdbID) {
 }
 
 function addToDetails(data) {
+  // function to add the data in the  movie's detail page
   if (movieDetail) {
     movieDetail.innerHTML = `
     <div class="movie-nav">
@@ -158,7 +162,7 @@ function addToDetails(data) {
     <div class="rating-container"></div>
   </div>
     `;
-
+    // add ratings list of the movies
     const rating = document.querySelector(".rating-container");
     if (rating) {
       for (let i = 0; i < data.Ratings.length; i++) {
@@ -172,19 +176,21 @@ function addToDetails(data) {
       }
     }
 
+    // add favourate button to the page which adds/removes the movie from fav list
     const favButton = document.querySelector(".fav");
     if (favButton) {
       let isFavourite = FavourateMovies.some(
         (mov) => mov.imdbID === data.imdbID
       );
       function toggleFav(data) {
+        // toggles the favourate button to add or remove the movie from fav list
         addToFav(data);
         isFavourite = FavourateMovies.some((mov) => mov.imdbID === data.imdbID);
         favButton.textContent = isFavourite ? "Remove from Fav" : "Add To Fav";
       }
+      favButton.textContent = isFavourite ? "Remove from Fav" : "Add To Fav";
 
       // Event listener for button click
-      favButton.textContent = isFavourite ? "Remove from Fav" : "Add To Fav";
       favButton.addEventListener("click", () => toggleFav(data));
     }
   }

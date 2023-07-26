@@ -1,15 +1,17 @@
+// script to render favourate page 
+// page renders all the movies that are in favourate list
 const favSection = document.getElementById("favourites-detail-container");
 let FavourateMovies = [];
 function init() {
   const storedArrayString = localStorage.getItem("Favourites");
   FavourateMovies = JSON.parse(storedArrayString) || [];
   renderFav();
-  // addLatestMovie();
 }
 
 window.onload = init;
 
 function addToFav(movie, isFavourite) {
+  // function to add movie to fav or remove from fav
   const storedArrayString = localStorage.getItem("Favourites");
   FavourateMovies = JSON.parse(storedArrayString) || [];
 
@@ -24,9 +26,9 @@ function addToFav(movie, isFavourite) {
   const arrayString = JSON.stringify(FavourateMovies);
   localStorage.setItem("Favourites", arrayString);
   renderFav();
-  // addLatestMovie();
 }
 function renderFav() {
+  // function to render each movie from the favourate list
   const storedArrayString = localStorage.getItem("Favourites");
   FavourateMovies = JSON.parse(storedArrayString) || [];
 

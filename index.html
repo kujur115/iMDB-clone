@@ -21,13 +21,14 @@
         <a href="#">iMDB</a>
       </div>
       <a href="./favourates.html" class="favourites">Favourites</a>
-      
+
       <div class="container-searchbox">
         <div id="searchBox">
           <div class="search">
             <input type="text" name="movie" id="search" placeholder="Search" />
             <i class="fas fa-search"></i>
           </div>
+          <!-- ? div with className autocomplete is added using script to list all the movies in search list -->
           <!-- <div class="autocomplete">
             <hr />
             <ul class="autocomplete-list">
@@ -53,8 +54,9 @@
       </div>
     </header>
     <hr />
- 
+
     <section id="carousel">
+      <!-- carousel for the page -->
       <a href="./movie.html?ref=tt6443346">
         <img
           class="first"
@@ -83,6 +85,7 @@
       /></a>
     </section>
     <section id="fav-section">
+      <!-- ? added using script -->
       <!-- <h4>Favourite Movies</h4>
       <div class="fav-container">
         <a href="./movie.html?ref=tt10366206">
@@ -101,6 +104,7 @@
       <div class="latest-Movies">
         <h4>Latest Movies</h4>
         <div class="card-container">
+          <!-- ? movie cards added using script -->
           <!-- <div class="movie-card">
             <a href="./movie.html?ref=tt10366206">
               <img
@@ -117,183 +121,14 @@
             <div class="card-watchlist">
               <button>Watchlist</button>
             </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8.9</p>
-            </div>
-            <div class="card-title">
-              <p>The Last of Us</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8</p>
-            </div>
-            <div class="card-title">
-              <p>Chor Nikal ke Bhaga</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8.4</p>
-            </div>
-            <div class="card-title">
-              <p>John Wick: Chapter 4</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8.9</p>
-            </div>
-            <div class="card-title">
-              <p>The Last of Us</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8</p>
-            </div>
-            <div class="card-title">
-              <p>Chor Nikal ke Bhaga</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div> -->
-        </div>
-      </div>
-      <div class="latest-Movies">
-        <h4>Popular Movies</h4>
-        <div class="card-container">
-          <!-- <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8.4</p>
-            </div>
-            <div class="card-title">
-              <p>John Wick: Chapter 4</p>
-            </div>
-            <div class="card-watchlist">
-              <button onclick="addToFav()">Watchlist</button>
-            </div>
-          </div> -->
-          <!-- <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8.9</p>
-            </div>
-            <div class="card-title">
-              <p>The Last of Us</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8</p>
-            </div>
-            <div class="card-title">
-              <p>Chor Nikal ke Bhaga</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BMDExZGMyOTMtMDgyYi00NGIwLWJhMTEtOTdkZGFjNmZiMTEwXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8.4</p>
-            </div>
-            <div class="card-title">
-              <p>John Wick: Chapter 4</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8.9</p>
-            </div>
-            <div class="card-title">
-              <p>The Last of Us</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
-          </div>
-          <div class="movie-card">
-            <img
-              src="https://m.media-amazon.com/images/M/MV5BNDMwZjQ2YzUtZDQyMC00MjcwLTlmN2MtZGY4OGEyMzMzNTk4XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg"
-              alt=""
-            />
-            <div class="card-ratings">
-              <p>8</p>
-            </div>
-            <div class="card-title">
-              <p>Chor Nikal ke Bhaga</p>
-            </div>
-            <div class="card-watchlist">
-              <button>Watchlist</button>
-            </div>
           </div> -->
         </div>
       </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./Assets/autocompleteSearch.js"></script>
+    <!-- autocomplete script for listing and rendring the movies that matches the search -->
+    <script src="./Assets/autocompleteSearch.js"></script> 
     <script src="./Assets/script.js"></script>
   </body>
 </html>
